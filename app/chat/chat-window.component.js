@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './chat.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,38 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, router_1, chat_service_1;
     var ChatWindowComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (chat_service_1_1) {
+                chat_service_1 = chat_service_1_1;
             }],
         execute: function() {
             ChatWindowComponent = (function () {
-                function ChatWindowComponent() {
+                function ChatWindowComponent(_chatService, _routeParams) {
+                    this._chatService = _chatService;
+                    this._routeParams = _routeParams;
                 }
+                ChatWindowComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this._chatService.getChats().then(function (chats) { return _this.chats = chats; });
+                    // let id = +this._routeParams.get('id');
+                };
                 ChatWindowComponent = __decorate([
                     core_1.Component({
                         selector: 'chat-window',
                         templateUrl: 'app/chat/chat-window.html',
-                        styleUrls: ['app/chat/chat-window.css']
+                        styleUrls: ['app/chat/chat-window.css'],
+                        providers: [chat_service_1.ChatService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [chat_service_1.ChatService, router_1.RouteParams])
                 ], ChatWindowComponent);
                 return ChatWindowComponent;
             }());

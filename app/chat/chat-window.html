@@ -1,6 +1,8 @@
 <div class="thread-list">
   <ul>
-    <li *ngFor"#chat of chats"></li>
+    <li *ngFor="#chat of chats">
+      {{chat.number}}
+    </li>
   </ul>
 </div>
 <div class="thread">
