@@ -14,15 +14,19 @@ import { ChatService } from './chat.service';
 export class ChatWindowComponent implements OnInit {
 
   chats: Chat[];
+  selectedChat: Chat;
 
   constructor(
     private _chatService: ChatService,
     private _routeParams: RouteParams
   ) {}
 
+  selectChat(chat: Chat) {
+    this.selectedChat = chat;
+  }
+
   ngOnInit() {
     this._chatService.getChats().then(chats => this.chats = chats);
-    // let id = +this._routeParams.get('id');
   }
 
 }

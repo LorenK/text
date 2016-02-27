@@ -1,10 +1,19 @@
+<div class="head"></div>
+
 <div class="thread-list">
   <ul>
-    <li *ngFor="#chat of chats">
-      {{chat.number}}
+    <li *ngFor="#chat of chats" class="user" [class.selected]="chat === selectedChat" (click)="selectChat(chat)">
+      <div class="number">
+        {{chat.number}}
+      </div>
     </li>
   </ul>
 </div>
-<div class="thread">
 
+<div class="thread">
+  <ul>
+    <li *ngFor="#message of chats">
+      {{message.number}}
+    </li>
+  </ul>
 </div>

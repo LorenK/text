@@ -29,10 +29,12 @@ System.register(['angular2/core', 'angular2/router', './chat.service'], function
                     this._chatService = _chatService;
                     this._routeParams = _routeParams;
                 }
+                ChatWindowComponent.prototype.selectChat = function (chat) {
+                    this.selectedChat = chat;
+                };
                 ChatWindowComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._chatService.getChats().then(function (chats) { return _this.chats = chats; });
-                    // let id = +this._routeParams.get('id');
                 };
                 ChatWindowComponent = __decorate([
                     core_1.Component({

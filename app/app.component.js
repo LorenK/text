@@ -30,7 +30,7 @@ System.register(['angular2/core', 'angular2/router', './chat/chat-window.compone
                 AppComponent = __decorate([
                     router_1.RouteConfig([
                         {
-                            path: '/:chat/:id',
+                            path: '/chat',
                             name: 'Chat',
                             component: chat_window_component_1.ChatWindowComponent,
                             useAsDefault: true

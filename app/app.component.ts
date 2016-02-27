@@ -5,7 +5,7 @@ import { ChatWindowComponent } from './chat/chat-window.component';
 
 @RouteConfig([
   {
-    path: '/:chat/:id',
+    path: '/chat',
     name: 'Chat',
     component: ChatWindowComponent,
     useAsDefault: true
