@@ -48,7 +48,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 
 // Check to see what the user is trying to do here
-if ($method == 'GET') {
+if ($method == 'GET' && $request[1] == 'messages') {
+  // The user is retrieving all messages from the DB
   getMessages($dbOptions);
 }
 
