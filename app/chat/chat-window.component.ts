@@ -3,6 +3,7 @@ import { RouteParams }  from 'angular2/router';
 
 import { Chat } from './chat'
 import { ChatService } from './chat.service';
+import { Message } from './message';
 
 @Component({
   selector: 'chat-window',
@@ -26,7 +27,10 @@ export class ChatWindowComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._chatService.getChats().then(chats => this.chats = chats);
+    this._chatService.getChats()
+      .then(chats => this.chats = chats)
+      .then(chats => this.selectChat(chats[0])
+    );
   }
 
 }

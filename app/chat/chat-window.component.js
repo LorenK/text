@@ -34,7 +34,9 @@ System.register(['angular2/core', 'angular2/router', './chat.service'], function
                 };
                 ChatWindowComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this._chatService.getChats().then(function (chats) { return _this.chats = chats; });
+                    this._chatService.getChats()
+                        .then(function (chats) { return _this.chats = chats; })
+                        .then(function (chats) { return _this.selectChat(chats[0]); });
                 };
                 ChatWindowComponent = __decorate([
                     core_1.Component({

@@ -6,14 +6,22 @@
       <div class="number">
         {{chat.number}}
       </div>
+      <div class="lastMessage">
+        {{chat.thread[chat.thread.length - 1].body}}
+      </div>
     </li>
   </ul>
 </div>
 
-<div class="thread">
+<div *ngIf="selectedChat" class="thread">
   <ul>
-    <li *ngFor="#message of chats">
-      {{message.number}}
+    <li *ngFor="#message of selectedChat.thread" class="message" [class.fromUser]="message.from == 0">
+      <div class="timestamp">
+        {{message.timestamp}}
+      </div>
+      <div class="contents">
+        {{message.body}}
+      </div>
     </li>
   </ul>
 </div>

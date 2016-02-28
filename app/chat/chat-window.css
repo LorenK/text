@@ -37,6 +37,14 @@
   margin-bottom: 10px;
 }
 
+.thread-list .user .lastMessage {
+  color: #666;
+}
+
+.thread-list .user.selected .lastMessage {
+  color: #FFF;
+}
+
 .thread {
   position: absolute;
   width: 70%;
@@ -51,6 +59,10 @@
   margin: 30px;
 }
 
+.thread .message.fromUser {
+  text-align: left;
+}
+
 .thread .message .timestamp {
   color: #999;
   font-size: 12px;
@@ -59,11 +71,15 @@
 .thread .message .contents {
   display: inline-block;
   margin: 10px 0;
-  background: #29a4ff;
-  color: #FFF;
+  background: #DDD;
+  color: #000;
   padding: 12px 16px;
   border-radius: 20px;
-  border-bottom-right-radius: 0;
+}
+
+.thread .message.fromUser .contents {
+  background: #29a4ff;
+  color: #FFF;
 }
 
 .thread .chat-input form {
