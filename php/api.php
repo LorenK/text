@@ -23,14 +23,15 @@ function getMessages($dbOptions) {
   while ($row = $results->fetch_assoc()) {
     // Let's format the time to be pretty
     $messages[users][$row[phone_number]][] = array(
-      'body' => $row[body],
-      'time' => date('m.d h:i a', strtotime($row[time]))
+      'from' => $row[from_user],
+      'timestamp' => date( 'm.d h:i a', strtotime($row[time])),
+      'body' => $row[body]
     );
   }
 
   // Now let's group all the phone numbers into users
   foreach ($messages[users] as $key => $value) {
-    $stuff = ["number" => $key, "messages" => $value];
+    $stuff = ["number" => $key, "thread" => $value];
     array_push($groupedMessages, $stuff);
   }
 

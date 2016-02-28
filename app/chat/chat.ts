@@ -1,5 +1,4 @@
 export interface Chat {
-  id: number;
   number: string;
   thread: Message[];
 }

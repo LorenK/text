@@ -2,7 +2,6 @@ import { Chat, Message } from './chat';
 
 export var CHATS: Chat[] = [
   {
-    'id': 0,
     'number' : '+19139803990',
     'thread' : [
       {
@@ -18,7 +17,6 @@ export var CHATS: Chat[] = [
     ]
   },
   {
-    'id': 1,
     'number' : '+19132444990',
     'thread' : [
       {
@@ -34,7 +32,6 @@ export var CHATS: Chat[] = [
     ]
   },
   {
-    'id': 2,
     'number' : '+19139805990',
     'thread' : [
       {
