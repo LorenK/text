@@ -9,6 +9,7 @@ export class ChatService {
 
   getChats() {
     return Promise.resolve(CHATS);
+
   }
 
 }

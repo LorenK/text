@@ -38,7 +38,7 @@ export class ChatWindowComponent implements OnInit {
     //   .then(chats => this.selectChat(chats[0])
     // );
 
-    this._http.get('app/chat/chats.json')
+    this._http.get('http://localhost/Text3/php/api.php/get/messages')
       .map(res => res.json())
       .subscribe(
         chats => this.chats = chats

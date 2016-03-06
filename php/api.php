@@ -4,6 +4,8 @@ require 'dbOptions.php';
 
 function getMessages($dbOptions) {
 
+  header('Access-Control-Allow-Origin: *');
+
   // Let's get all the messages from the databse and pass them over as JSON
 
   // Connect!

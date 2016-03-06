@@ -43,7 +43,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', 'rxjs/add/
                     //   .then(chats => this.selectChat(chats[0])
                     // );
                     var _this = this;
-                    this._http.get('app/chat/chats.json')
+                    this._http.get('http://localhost/Text3/php/api.php/get/messages')
                         .map(function (res) { return res.json(); })
                         .subscribe(function (chats) { return _this.chats = chats; });
                 };
