@@ -93,7 +93,28 @@
 .thread .chat-input form input {
   width: 100%;
   height: 100%;
+  left: 0;
   border: none;
   outline: none;
-  padding: 0 20px;
+  padding: 0 12% 0 20px;
+}
+
+.thread .chat-input button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10%;
+  height: 100%;
+  background: #FFF;
+  border: none;
+  font-weight: bold;
+  color: #29a4ff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.thread .chat-input button:hover {
+  background: #29a4ff;
+  color: #FFF;
 }

@@ -15,7 +15,7 @@
 
 <div *ngIf="selectedChat" class="thread">
   <ul>
-    <li *ngFor="#message of selectedChat.thread" class="message" [class.fromUser]="message.from == 0">
+    <li *ngFor="#message of selectedChat.thread" class="message" [class.fromUser]="message.from == 1">
       <div class="timestamp">
         {{message.timestamp}}
       </div>
@@ -24,4 +24,10 @@
       </div>
     </li>
   </ul>
+  <div class="chat-input clear">
+    <form method="post">
+      <input type="text" placeholder="Message..." [(ngModel)]="selectedChat.newMessage">
+      <button type="submit">Send</button>
+    </form>
+  </div>
 </div>
