@@ -118,3 +118,8 @@
   background: #29a4ff;
   color: #FFF;
 }
+
+.thread .chat-input button:disabled {
+  color: #CCC;
+  background: #FFF !important;
+}

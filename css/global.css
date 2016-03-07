@@ -10,7 +10,7 @@ ul, li {
   list-style-type: none;
 }
 
-.clear::after {
+.clear:after {
   content: '';
   display: block;
   visibility: hidden;
