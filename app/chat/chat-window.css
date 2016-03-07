@@ -55,6 +55,10 @@
   text-align: right;
 }
 
+.thread ul {
+  padding-bottom: 50px;
+}
+
 .thread .message {
   margin: 30px;
 }

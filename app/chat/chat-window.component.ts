@@ -32,6 +32,17 @@ export class ChatWindowComponent implements OnInit {
     this.selectedChat = chat;
   }
 
+  sendMessage(message: string) {
+    this.selectedChat.thread.push(
+      {
+      'from': 0,
+      'timestamp': '03.06 4:30 pm',
+      'body' : message
+      }
+    );
+    this.selectedChat.newMessage = '';
+  }
+
   ngOnInit() {
     // this._chatService.getChats()
     //   .then(chats => this.chats = chats)
@@ -44,7 +55,14 @@ export class ChatWindowComponent implements OnInit {
         chats => this.chats = chats
         // chats => this.selectedChat(chats[0])
       );
+  }
 
+  ngAfterViewChecked() {
+
+    // First let's check that messages are being shown
+    if (this.selectedChat) {
+      window.scrollTo(0,document.body.scrollHeight);
+    }
   }
 
 }

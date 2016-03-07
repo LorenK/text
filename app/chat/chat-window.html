@@ -25,7 +25,7 @@
     </li>
   </ul>
   <div class="chat-input clear">
-    <form method="post">
+    <form (ngSubmit)="sendMessage(selectedChat.newMessage)">
       <input type="text" placeholder="Message..." [(ngModel)]="selectedChat.newMessage">
       <button type="submit" [disabled]="!selectedChat.newMessage">Send</button>
     </form>

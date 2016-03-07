@@ -37,6 +37,14 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', 'rxjs/add/
                 ChatWindowComponent.prototype.selectChat = function (chat) {
                     this.selectedChat = chat;
                 };
+                ChatWindowComponent.prototype.sendMessage = function (message) {
+                    this.selectedChat.thread.push({
+                        'from': 0,
+                        'timestamp': '03.06 4:30 pm',
+                        'body': message
+                    });
+                    this.selectedChat.newMessage = '';
+                };
                 ChatWindowComponent.prototype.ngOnInit = function () {
                     // this._chatService.getChats()
                     //   .then(chats => this.chats = chats)
@@ -46,6 +54,12 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', 'rxjs/add/
                     this._http.get('http://localhost/Text3/php/api.php/get/messages')
                         .map(function (res) { return res.json(); })
                         .subscribe(function (chats) { return _this.chats = chats; });
+                };
+                ChatWindowComponent.prototype.ngAfterViewChecked = function () {
+                    // First let's check that messages are being shown
+                    if (this.selectedChat) {
+                        window.scrollTo(0, document.body.scrollHeight);
+                    }
                 };
                 ChatWindowComponent = __decorate([
                     core_1.Component({
