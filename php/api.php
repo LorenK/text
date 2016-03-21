@@ -2,9 +2,9 @@
 
 require 'dbOptions.php';
 
-function getMessages($dbOptions) {
+header('Access-Control-Allow-Origin: *');
 
-  header('Access-Control-Allow-Origin: *');
+function getMessages($dbOptions) {
 
   // Let's get all the messages from the databse and pass them over as JSON
 
@@ -46,6 +46,14 @@ function getMessages($dbOptions) {
 
 }
 
+function putMessage($ticket, $from, $body) {
+
+}
+
+
+
+
+
 // get the HTTP method, path and body of the request
 $method = $_SERVER['REQUEST_METHOD'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
@@ -58,10 +66,11 @@ if ($method == 'GET' && $request[1] == 'messages') {
 
 if ($method == 'POST' && $request[1] == 'message') {
   // The user wants to add a message, let's see which ticket to append the message to
-  echo "Ticket: " . $_GET['ticket'] . "\n";
-  echo "From: " . $_GET['from'] . "\n";
-  echo "Time: " . $_GET['time'] . "\n";
-  echo "Body: " . $_GET['body'] . "\n";
+  foreach ($_GET as $key => $value) {
+    echo $key. ": " . $value . "\n";
+  }
+
+  putMessage($_GET['ticket'], $_GET['from'], $_GET['body']);
 }
 
 ?>

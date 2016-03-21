@@ -38,14 +38,23 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', 'rxjs/add/
                     this.selectedChat = chat;
                 };
                 ChatWindowComponent.prototype.sendMessage = function (input) {
+                    console.log('Sending message...');
                     var message;
+                    message = JSON.stringify({
+                        'from': 0,
+                        'timestamp': '',
+                        'body': input,
+                        'ticket': 0
+                    });
                     this.selectedChat.thread.push({
                         'from': 0,
-                        'timestamp': '03.06 4:30 pm',
-                        'body': input
+                        'timestamp': '',
+                        'body': input,
+                        'ticket': 0
                     });
                     this.selectedChat.newMessage = '';
-                    this._http.post('http://localhost/Text3/php/api.php/put/message', input);
+                    this._http.post('http://localhost/Text3/php/api.php/put/message', message)
+                        .subscribe(function (response) { return console.log(response); });
                 };
                 ChatWindowComponent.prototype.ngOnInit = function () {
                     // this._chatService.getChats()

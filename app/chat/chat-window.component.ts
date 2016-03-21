@@ -33,16 +33,27 @@ export class ChatWindowComponent implements OnInit {
   }
 
   sendMessage(input: string) {
-    let message: Message;
+    console.log('Sending message...');
+    let message: string;
+    message = JSON.stringify({
+      'from': 0,
+      'timestamp': '',
+      'body': input,
+      'ticket': 0
+    });
     this.selectedChat.thread.push(
       {
       'from': 0,
-      'timestamp': '03.06 4:30 pm',
-      'body' : input
+      'timestamp': '',
+      'body': input,
+      'ticket': 0
       }
     );
     this.selectedChat.newMessage = '';
-    this._http.post('http://localhost/Text3/php/api.php/put/message', input);
+    this._http.post('http://localhost/Text3/php/api.php/put/message', message)
+      .subscribe(
+        response => console.log(response)
+      );
   }
 
   ngOnInit() {
