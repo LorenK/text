@@ -32,15 +32,17 @@ export class ChatWindowComponent implements OnInit {
     this.selectedChat = chat;
   }
 
-  sendMessage(message: string) {
+  sendMessage(input: string) {
+    let message: Message;
     this.selectedChat.thread.push(
       {
       'from': 0,
       'timestamp': '03.06 4:30 pm',
-      'body' : message
+      'body' : input
       }
     );
     this.selectedChat.newMessage = '';
+    this._http.post('http://localhost/Text3/php/api.php/put/message', input);
   }
 
   ngOnInit() {

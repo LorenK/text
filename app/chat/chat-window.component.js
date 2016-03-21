@@ -37,13 +37,15 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', 'rxjs/add/
                 ChatWindowComponent.prototype.selectChat = function (chat) {
                     this.selectedChat = chat;
                 };
-                ChatWindowComponent.prototype.sendMessage = function (message) {
+                ChatWindowComponent.prototype.sendMessage = function (input) {
+                    var message;
                     this.selectedChat.thread.push({
                         'from': 0,
                         'timestamp': '03.06 4:30 pm',
-                        'body': message
+                        'body': input
                     });
                     this.selectedChat.newMessage = '';
+                    this._http.post('http://localhost/Text3/php/api.php/put/message', input);
                 };
                 ChatWindowComponent.prototype.ngOnInit = function () {
                     // this._chatService.getChats()

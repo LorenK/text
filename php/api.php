@@ -56,4 +56,12 @@ if ($method == 'GET' && $request[1] == 'messages') {
   getMessages($dbOptions);
 }
 
+if ($method == 'POST' && $request[1] == 'message') {
+  // The user wants to add a message, let's see which ticket to append the message to
+  echo "Ticket: " . $_GET['ticket'] . "\n";
+  echo "From: " . $_GET['from'] . "\n";
+  echo "Time: " . $_GET['time'] . "\n";
+  echo "Body: " . $_GET['body'] . "\n";
+}
+
 ?>
